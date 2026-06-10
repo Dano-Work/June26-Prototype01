@@ -1,0 +1,200 @@
+/* ============================================================
+   Dan Ogunkoya — Design System tokens
+   colors_and_type.css
+
+   See README.md for rationale. Fonts default to Google substitutes;
+   replace with licensed faces by dropping .woff2 into fonts/ and
+   updating the @font-face blocks below.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---------- COLOR -------------------------------------- */
+
+  /* Neutrals */
+  --ds-white:        #ffffff;
+  --ds-paper:        #fafafa;            /* very subtle off-white surface */
+  --ds-ink:          #1f1f1f;            /* primary text (not pure black) */
+  --ds-ink-soft:     #3a3a3a;            /* sub-headings */
+  --ds-muted:        #6e6e6e;            /* meta / captions */
+  --ds-muted-2:      #9a9a9a;            /* logo light grey, disabled */
+  --ds-hairline:     #e5e5e5;            /* dividers, hairline borders */
+  --ds-hairline-2:   #f0f0f0;            /* secondary divider */
+
+  /* Brand accent (from the logo "UX/UI Designer" wordmark) */
+  --ds-accent:       #4a8fa8;            /* steel-blue */
+  --ds-accent-ink:   #3a7388;            /* pressed / link visited */
+  --ds-accent-soft:  #e6f0f4;            /* tint background, link hover halo */
+
+  /* Semantic foreground */
+  --fg-1: var(--ds-ink);                 /* primary */
+  --fg-2: var(--ds-ink-soft);            /* secondary */
+  --fg-3: var(--ds-muted);               /* tertiary / meta */
+  --fg-disabled: var(--ds-muted-2);
+  --fg-accent: var(--ds-accent);
+  --fg-on-accent: var(--ds-white);
+
+  /* Semantic background */
+  --bg-1: var(--ds-white);               /* page */
+  --bg-2: var(--ds-paper);               /* secondary surface */
+  --bg-accent: var(--ds-accent-soft);
+
+  /* Border */
+  --border-1: var(--ds-hairline);
+  --border-2: var(--ds-hairline-2);
+
+  /* Project-chrome accents (used only inside their respective project tiles) */
+  --proj-hackney-green:  #00b372;
+  --proj-bbc-red:        #bb1919;
+  --proj-now-lime:       #00ff85;
+
+  /* ---------- TYPE --------------------------------------- */
+
+  --font-sans:    "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-serif:   "Playfair Display", "Adelle", Georgia, "Times New Roman", serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Weights */
+  --fw-light:  300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Scale — modest, type-driven portfolio */
+  --t-display:   3.5rem;    /* 56px — tagline, hero */
+  --t-h1:        2.5rem;    /* 40px */
+  --t-h2:        2rem;      /* 32px */
+  --t-h3:        1.5rem;    /* 24px */
+  --t-h4:        1.25rem;   /* 20px */
+  --t-body:      1.0625rem; /* 17px */
+  --t-small:     0.9375rem; /* 15px */
+  --t-meta:      0.8125rem; /* 13px */
+
+  /* Line heights */
+  --lh-tight:  1.15;
+  --lh-snug:   1.3;
+  --lh-normal: 1.55;
+  --lh-loose:  1.7;
+
+  /* Tracking */
+  --tr-tight:   -0.01em;
+  --tr-normal:   0;
+  --tr-loose:    0.04em;
+  --tr-caps:     0.08em;
+
+  /* ---------- SPACE / RADIUS / SHADOW -------------------- */
+
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;        /* logo wrapper */
+  --radius-3: 8px;
+
+  /* The site essentially has no shadows; tokens kept for UI kit affordances */
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.04), 0 0 0 1px var(--border-1);
+  --shadow-focus: 0 0 0 3px rgba(74,143,168,0.35);
+
+  /* Layout */
+  --layout-max: 1180px;
+  --layout-narrow: 760px;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+/* ============================================================
+   Semantic element styles — drop colors_and_type.css into a page
+   and the element selectors below render in-brand by default.
+   ============================================================ */
+
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  color: var(--fg-1);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  margin: 0 0 var(--space-4);
+}
+
+h1 { font-size: var(--t-h1); }
+h2 { font-size: var(--t-h2); }
+h3 { font-size: var(--t-h3); font-weight: var(--fw-regular); }
+h4 { font-size: var(--t-h4); font-weight: var(--fw-medium); }
+
+/* The signature tagline treatment — serif italic, larger */
+.do-display,
+blockquote.do-display {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  font-size: var(--t-display);
+  line-height: var(--lh-tight);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+p { margin: 0 0 var(--space-4); color: var(--fg-1); }
+
+small, .meta { font-size: var(--t-meta); color: var(--fg-3); }
+
+a {
+  color: var(--fg-1);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+a:hover { color: var(--fg-accent); }
+a:focus-visible { outline: none; box-shadow: var(--shadow-focus); border-radius: var(--radius-2); }
+
+/* Nav-link variant: no underline, simple hover shift */
+.do-nav-link {
+  font-size: var(--t-small);
+  color: var(--fg-1);
+  text-transform: none;
+  letter-spacing: var(--tr-normal);
+}
+
+/* Meta caps (used for project "Responsibilities" labels) */
+.do-eyebrow {
+  font-size: var(--t-meta);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tr-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* Hairline rule between featured-work rows */
+hr, .do-rule {
+  border: 0;
+  border-top: 1px solid var(--border-1);
+  margin: var(--space-9) 0;
+}
+
+code, kbd, pre { font-family: var(--font-mono); font-size: 0.95em; }
+
+::selection { background: var(--ds-accent-soft); color: var(--ds-ink); }
