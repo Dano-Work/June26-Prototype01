@@ -1,0 +1,233 @@
+/* ============================================================
+   Verdant & Still — Design Tokens
+   Source: moss_emerald_design_system_v2.html
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+
+/* ============================================================
+   BASE COLOR SCALES
+   ============================================================ */
+:root {
+  /* Moss — warm, yellowish green */
+  --moss-50:  #f2f7f0;
+  --moss-100: #ddebd8;
+  --moss-200: #b8d4af;
+  --moss-400: #6fa05e;
+  --moss-600: #4a7a38;
+  --moss-800: #2d5422;
+  --moss-900: #1a3314;
+
+  /* Emerald — cool, teal-leaning green */
+  --emerald-50:  #eaf7f1;
+  --emerald-100: #c0ebd7;
+  --emerald-200: #80d5af;
+  --emerald-400: #2db37a;
+  --emerald-600: #1a8a5a;
+  --emerald-800: #0e5c3a;
+
+  /* Neutrals */
+  --cream:      #fafcf9;
+  --white:      #ffffff;
+
+  /* ============================================================
+     SEMANTIC COLOR TOKENS
+     ============================================================ */
+
+  /* Text */
+  --color-text-primary:   #1a2e1a;
+  --color-text-secondary: #4a6347;
+  --color-text-muted:     #7a9a78;
+  --color-text-inverse:   #ffffff;
+
+  /* Backgrounds */
+  --color-bg-page:    #fafcf9;     /* page / app background */
+  --color-bg-surface: #ffffff;     /* card / panel surface */
+  --color-bg-subtle:  #f2f7f0;     /* moss-50 — tinted section bg */
+  --color-bg-raised:  #ffffff;     /* elevated surface (modal, sheet) */
+
+  /* Borders */
+  --color-border-light: rgba(74, 122, 56, 0.12);   /* card borders */
+  --color-border-mid:   rgba(74, 122, 56, 0.22);   /* input, ghost-button borders */
+  --color-border-focus: rgba(74, 122, 56, 0.10);   /* focus ring fill */
+
+  /* Interactive */
+  --color-primary:         #4a7a38;   /* moss-600 */
+  --color-primary-hover:   #2d5422;   /* moss-800 */
+  --color-primary-subtle:  #f2f7f0;   /* moss-50 */
+  --color-accent:          #1a8a5a;   /* emerald-600 */
+  --color-accent-hover:    #0e5c3a;   /* emerald-800 */
+  --color-accent-subtle:   #eaf7f1;   /* emerald-50 */
+
+  /* Status */
+  --color-success-bg:     #f2f7f0;
+  --color-success-border: #6fa05e;   /* moss-400 */
+  --color-success-text:   #2d5422;   /* moss-800 */
+  --color-info-bg:        #eaf7f1;
+  --color-info-border:    #2db37a;   /* emerald-400 */
+  --color-info-text:      #0e5c3a;   /* emerald-800 */
+  --color-neutral-bg:     #f7f8f6;
+  --color-neutral-border: rgba(74, 122, 56, 0.22);
+  --color-neutral-text:   #4a6347;
+
+  /* ============================================================
+     TYPOGRAPHY TOKENS
+     ============================================================ */
+
+  /* Font families */
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Font sizes */
+  --text-display: 32px;
+  --text-h1:      24px;
+  --text-h2:      20px;
+  --text-h3:      16px;
+  --text-body:    15px;
+  --text-small:   13px;
+  --text-label:   11px;
+
+  /* Line heights */
+  --leading-tight:  1.2;
+  --leading-snug:   1.4;
+  --leading-normal: 1.6;
+  --leading-loose:  1.7;
+
+  /* Font weights */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.06em;
+  --tracking-widest: 0.10em;
+
+  /* ============================================================
+     SPACING TOKENS
+     ============================================================ */
+
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ============================================================
+     BORDER RADIUS
+     ============================================================ */
+
+  --radius-none:   0;        /* alerts */
+  --radius-base:   6px;      /* universal: cards, buttons, inputs, badges */
+  --radius-full:   9999px;   /* avatars, pill badges */
+
+  /* ============================================================
+     SHADOWS & FOCUS
+     ============================================================ */
+
+  --shadow-none:  none;
+  /* Standard cards use hairline border, no shadow */
+  --shadow-focus: 0 0 0 3px rgba(74, 122, 56, 0.10);
+  --shadow-card:  none;   /* rely on border, not shadow */
+
+  /* ============================================================
+     TRANSITIONS
+     ============================================================ */
+
+  --transition-fast:    0.10s ease;
+  --transition-base:    0.15s ease;
+  --transition-slow:    0.25s ease;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Apply these to reset / base stylesheets
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-primary);
+  background: var(--color-bg-page);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display */
+.vs-display {
+  font-family: var(--font-serif);
+  font-size: var(--text-display);
+  font-weight: var(--weight-regular);
+  color: var(--moss-800);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Headings */
+h1, .vs-h1 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-regular);
+  color: var(--moss-800);
+  line-height: var(--leading-tight);
+}
+
+h2, .vs-h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  color: var(--moss-800);
+  line-height: var(--leading-snug);
+}
+
+h3, .vs-h3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-regular);
+  color: var(--moss-600);
+  line-height: var(--leading-snug);
+}
+
+p, .vs-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-primary);
+  line-height: var(--leading-normal);
+}
+
+.vs-small {
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: var(--weight-light);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.vs-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  line-height: 1;
+}
+
+/* ============================================================
+   BASE COMPONENT RESETS
+   ============================================================ */
+
+button, input, select, textarea {
+  font-family: var(--font-sans);
+}
